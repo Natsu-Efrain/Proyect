@@ -1,0 +1,20 @@
+
+.btn-outline-success {
+  color: #000000;
+  background-color: #d62b2b00;
+  background-image: none;
+  border-color: #eeeeee;
+}
+
+.hola {
+  top: 100%;
+  left: -73px;
+  margin-top: 0.125rem;
+}
+
+
+.btn-outline-success:hover {
+  color: #fff;
+  background-color: #ff0000;
+  border-color: #ff0000;
+}

@@ -1,0 +1,147 @@
+<div class="container">
+  <mat-tab-group mat-align-tabs="start">
+    <mat-tab label="Responsables">
+      <div class="container">
+        <div class="row mt-4">
+          <div class="col-12">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="">Buscar:</span>
+              </div>
+              <input type="text" class="form-control">
+              &nbsp;
+              <button type="button" class="btn btn-secondary btn-secondary-class"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                  height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                  <path
+                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                </svg></button>
+              &nbsp;
+              <button type="button" class="btn btn-secondary btn-secondary-class" (click)="mostrar()"><svg
+                  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                  class="bi bi-plus-circle" viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                  <path
+                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                </svg></button>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4" *ngIf="display">
+          <div class="col-3">
+            <span class="input-group-text" id="">RFC:</span>
+          </div>
+          <div class="col-3">
+            <span class="input-group-text" id="">Nombre:</span>
+          </div>
+          <div class="col-3">
+            <span class="input-group-text" id="">Rol:</span>
+          </div>
+          <div class="col-3"></div>
+          <div class="col-3">
+            <input type="text" class="form-control">
+          </div>
+          <div class="col-3">
+            <input type="text" class="form-control">
+          </div>
+          <div class="col-3">
+            <select class="form-select" aria-label="Default select example">
+              <option selected disabled>Seleccione el rol</option>
+              <option value="1">Responsable tecnico</option>
+              <option value="2">Responsable Administrativo</option>
+              <option value="3">Responsable Legal</option>
+            </select>
+          </div>
+          <div class="col-3">
+            <button type="button" class="btn btn-secondary btn-secondary-class">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+                <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                <path fill-rule="evenodd"
+                  d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <div class="col-12">
+            <div class="card">
+              <p-table [value]="empleados" responsiveLayout="scroll">
+                <ng-template pTemplate="header" let-columns>
+                  <tr>
+                    <th style="text-align: center;">RFC</th>
+                    <th style="text-align: center;">Nombre</th>
+                    <th style="text-align: center;">Rol</th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-empl let-columns="columns">
+                  <tr>
+                    <td>{{empl.name}}</td>
+                    <td>{{empl.rfc}}</td>
+                    <td>
+                      <div class="row">
+                        <div class="col-8" style="padding: 0.50rem 0.75rem !important;">
+                          {{empl.rol}}
+                        </div>
+                        <div class="col-4">
+                          <button type="button" class="btn btn-secondary btn-secondary-class">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                              class="bi bi-person-plus-fill" viewBox="0 0 16 16">
+                              <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                              <path fill-rule="evenodd"
+                                d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+
+                    </td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Proveedores">
+      <div class="container">
+        <div class="row mt-4">
+          <div class="col-12">
+            <div class="card">
+              <p-table [value]="prov" responsiveLayout="scroll">
+                <ng-template pTemplate="header" let-columns>
+                  <tr>
+                    <th style="text-align: center;">RFC</th>
+                    <th style="text-align: center;">Nombre</th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-pro let-columns="columns">
+                  <tr>
+                    <td>
+                      {{pro.rfc}}
+                    </td>
+                    <td>
+                      <div class="row">
+                        <div class="col-8" style="padding: 0.50rem 0.75rem !important;">
+                          {{pro.name}}
+                        </div>
+                        <div class="col-4">
+                          <button type="button" class="btn btn-secondary btn-secondary-class">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+
